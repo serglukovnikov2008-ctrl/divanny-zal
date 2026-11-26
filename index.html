@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <!-- Базовые настройки страницы и подключение внешних стилей -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Диванный зал</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Шапка сайта с названием проекта и кратким описанием -->
+  <header class="site-header">
+    <h1>Диванный зал</h1>
+    <p>Поиск фильмов и сериалов для семейного киноклуба</p>
+  </header>
+
+  <!-- Основное содержимое страницы, объединяющее три смысловые секции -->
+  <main class="main-content">
+    <!-- Секция поиска с формой для ввода названия фильма или сериала -->
+    <section class="search-section" aria-labelledby="search-heading">
+      <h2 id="search-heading">Поиск</h2>
+      <form class="search-form">
+        <label for="movie-search">Название фильма или сериала</label>
+        <input type="search" id="movie-search" name="query">
+        <button type="button" class="search-button">Найти</button>
+      </form>
+    </section>
+
+    <!-- Секция результатов с пустым списком для будущих карточек -->
+    <section class="results-section" aria-labelledby="results-heading">
+      <h2 id="results-heading">Результаты</h2>
+      <!-- Список для карточек найденных фильмов (заполнит script.js) -->
+      <ul class="list" id="list"></ul>
+    </section>
+
+    <!-- Секция избранного с пустым списком для отложенных карточек -->
+    <section class="watchlist-section" aria-labelledby="watchlist-heading">
+      <h2 id="watchlist-heading">Посмотрим</h2>
+      <!-- Список для карточек отложенных фильмов (заполнит script.js) -->
+      <ul class="list" id="list2"></ul>
+    </section>
+  </main>
+
+  <!-- Подвал с информацией об авторе и статусе учебной работы -->
+  <footer class="site-footer">
+    <p>Учебный проект школьника для семейного киноклуба</p>
+  </footer>
+
+  <!-- Подключение скрипта в конце тела документа для ускорения загрузки -->
+  <script src="script.js"></script>
+</body>
+</html>
