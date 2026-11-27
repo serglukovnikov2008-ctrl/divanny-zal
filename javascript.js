@@ -15,6 +15,7 @@ function renderItems(items) {
     list.innerHTML = '<li class="empty">Ничего не найдено. Попробуй другое название.</li>';
     return;
   }
+  
   // Находим форму, поле ввода и элемент для текста подсказки
 const form = document.querySelector(".search-form");
 const input = document.querySelector("#movie-search");
