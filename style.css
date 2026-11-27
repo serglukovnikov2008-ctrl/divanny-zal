@@ -1,0 +1,150 @@
+/* Сбрасываем блочную модель: padding и border входят в ширину элемента */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Токены темы: имена по роли, значения под уютный «диванный» стиль */
+:root {
+  --bg: #f5efe6;
+  --surface: #ffffff;
+  --ink: #2a1f14;
+  --muted: #6b5d4f;
+  --accent: #b85c38;
+  --border: #d9cfc0;
+  --radius: 8px;
+  --gap: 16px;
+}
+
+/* Базовые стили страницы: фон, текст, отступы для экрана от 320 px */
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Главный заголовок и подзаголовки секций */
+h1, h2 {
+  margin: 0 0 var(--gap) 0;
+  color: var(--ink);
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+/* Обычный текст и подписи */
+p {
+  margin: 0 0 var(--gap) 0;
+  color: var(--muted);
+}
+
+/* Шапка сайта: flex-раскладка с переносом на узких экранах */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  padding: var(--gap);
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Основной блок с отступами по бокам */
+.main-content {
+  padding: var(--gap);
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--gap) * 2);
+}
+
+/* Каждая секция — отдельный блок на всю ширину */
+.search-section,
+.results-section,
+.watchlist-section {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--gap);
+}
+
+/* Форма поиска: flex-раскладка полей в строку с переносом */
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  align-items: flex-end;
+}
+
+/* Подпись к полю ввода */
+label {
+  display: block;
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+/* Поле ввода и кнопка: минимальная высота 44 px для удобного тапа */
+input[type="search"],
+button {
+  min-height: 44px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  color: var(--ink);
+}
+
+/* Поле ввода растягивается на всю доступную ширину */
+input[type="search"] {
+  flex: 1 1 200px;
+}
+
+/* Кнопка поиска с акцентным цветом */
+.search-button {
+  background-color: var(--accent);
+  color: var(--surface);
+  border-color: var(--accent);
+  cursor: pointer;
+}
+
+/* Сетка карточек: в базе одна колонка, заполнит script.js */
+.list {
+  display: grid;
+  gap: var(--gap);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Подвал сайта с приглушённым текстом */
+.site-footer {
+  padding: var(--gap);
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* Видимый фокус для клавиатурной навигации */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* На планшетах сетка карточек становится в две колонки */
+@media (min-width: 640px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* На больших экранах сетка карточек становится в три колонки */
+@media (min-width: 1024px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
